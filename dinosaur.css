@@ -1,0 +1,37 @@
+body{
+    background-size: cover;
+    background-position: center;
+}
+.heading
+{
+font-size: 23px;
+width: 100%;
+margin-top: 0px;
+}
+
+#status
+{
+font-size: 18px;
+}
+
+canvas
+{
+box-shadow: 10px 10px 10px grey;
+border-radius: 10px
+}
+.copy_right_footer {
+    position: fixed;
+    color: #1a0303;
+    bottom: 0;
+    width: 100%;
+    background-color: #95c9f7;
+    line-height: 2;
+    text-align: center;
+   }
+
+.link{
+    background-color: black;
+    width: 80px;
+    border-radius: 10px;
+    float: right;
+}
