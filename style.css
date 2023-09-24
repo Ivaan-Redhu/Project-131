@@ -1,40 +1,25 @@
-#dinosaur_button
-{
-    font-size: 30;
-    border-radius: 20px;
-    margin-top: 10px;
-    margin-bottom: 40px;
-    width: 400px;
+.header{
+    color: black;
+    font-size: 25px;
+    box-shadow: 5px 5px 5px rgb(248, 106, 106);
 }
 
-#elephant_button
+body
 {
-    font-size: 30;
-    border-radius: 20px;
-    margin-bottom: 40px;
-    width: 400px;
+    background-position: center;
+    background-size: cover;
 }
 
-#hand_button
+.link
 {
-    font-size: 30;
-    border-radius: 20px;
-    margin-bottom: 40px;
-    width: 400px;
+    background: white;
+    border-radius: 10px;
+    width: 250px;
+    margin-top: 15px;
+    font-size: medium;
 }
 
-#hat_button
+.link:hover
 {
-    font-size: 30;
-    border-radius: 20px;
-    margin-bottom: 40px;
-    width: 400px;
-}
-
-#pen_button
-{
-    font-size: 30;
-    border-radius: 20px;
-    margin-bottom: 40px;
-    width: 400px;
+    font-size: large;
 }

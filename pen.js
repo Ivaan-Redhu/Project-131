@@ -1,9 +1,9 @@
 Status = "";
-dinosaur_image = "";
+pen_image = "";
 objects = [];
 
 function preload(){
-    dinosaur_image = loadImage("dinosaur.jpg");
+    pen_image = loadImage("pen.jpg");
 }
 
 function setup(){
@@ -16,7 +16,7 @@ function setup(){
 function modelLoaded(){
     console.log("Model Loaded!");
     Status = true;
-    object_detector.detect(dinosaur_image,gotResults);
+    object_detector.detect(pen_image,gotResults);
 }
 
 function gotResults(results,error){
@@ -28,7 +28,7 @@ function gotResults(results,error){
 }
 
 function draw(){
-    image(dinosaur_image,0,0,640,350);
+    image(pen_image,0,0,640,350);
     if(Status !=""){
         for(i = 0; i <  objects.length; i++){
             document.getElementById("status").innerHTML = "Status: Object Detected";
