@@ -1,44 +1,47 @@
-Status = "";
-pen_image = "";
+img = "";
 objects = [];
+status = "";
 
 function preload(){
-    pen_image = loadImage("pen.jpg");
+  img = loadImage('pen.jpg');
 }
 
-function setup(){
-    canvas = createCanvas(640,350);
-    canvas.position(315,200);
-    object_detector = ml5.objectDetector('cocossd',modelLoaded);
-    document.getElementById("status").innerHTML = "Status: Detecting Objects";
+
+function setup() {
+  canvas = createCanvas(640, 420);
+  canvas.center();
+  objectDetector = ml5.objectDetector('cocossd', modelLoaded);
+  document.getElementById("status").innerHTML = "Status : Detecting Objects";
 }
 
-function modelLoaded(){
-    console.log("Model Loaded!");
-    Status = true;
-    object_detector.detect(pen_image,gotResults);
+function modelLoaded() {
+  console.log("Model Loaded!")
+  status = true;
+  objectDetector.detect(img, gotResult);
 }
 
-function gotResults(results,error){
-    if(error){
-        console.error(error);
+function gotResult(error, results) {
+  if (error) {
+    console.log(error);
+  }
+  console.log(results);
+  objects = results;
+}
+
+
+function draw() {
+  if (status != undefined) {
+  	  image(img, 0, 0, 640, 420);
+    for (var i = 0; i < objects.length; i++) {
+      document.getElementById("status").innerHTML = "Status : Objects Detected";
+      document.getElementById("number_of_objects").innerHTML = "Number of objects detected are : "+ objects.length;
+
+      fill(255, 0, 0);
+      percent = floor(objects[i].confidence * 100);
+      text(objects[i].label + " " + percent + "%", objects[i].x + 5, objects[i].y + 15);
+      noFill();
+      stroke(255, 0, 0);
+      rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
     }
-    console.log(results);
-    objects = results;
-}
-
-function draw(){
-    image(pen_image,0,0,640,350);
-    if(Status !=""){
-        for(i = 0; i <  objects.length; i++){
-            document.getElementById("status").innerHTML = "Status: Object Detected";
-
-            fill("#fc0303");
-            percent = floor(objects[i].confidence * 100);
-            text(objects[i].label + " " + percent + "%",objects[i].x, objects[i].y);
-            noFill();
-            stroke("#fc0303");
-            rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
-        }
-    }
+  }
 }
